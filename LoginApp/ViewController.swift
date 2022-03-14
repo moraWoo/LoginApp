@@ -43,6 +43,11 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        loginTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
 }
 
 // MARK: - Extension

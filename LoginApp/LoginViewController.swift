@@ -9,7 +9,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet var logOutButton: UIButton!
     @IBOutlet var userNameLogin: UILabel!
     
     var userNameLoginLabel: String!
@@ -17,10 +16,5 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameLogin.text = userNameLoginLabel
-    }
-    
-    @IBAction func buttonLogOut() {
-        dismiss(animated: true)
-        print(2)
     }
 }
