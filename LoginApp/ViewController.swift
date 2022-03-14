@@ -12,17 +12,6 @@ class ViewController: UIViewController {
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
-    @IBOutlet var buttonLogIn: UIButton!
-    
-    @IBOutlet var buttonForgotUserName: UIButton!
-    @IBOutlet var buttonForgotPassword: UIButton!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let userNameForLabel = segue.destination as? LoginViewController else { return }
         userNameForLabel.userNameLoginLabel = loginTextField.text
@@ -42,6 +31,7 @@ class ViewController: UIViewController {
             return
         }
     }
+
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         loginTextField.text = ""
@@ -60,13 +50,13 @@ extension ViewController {
     }
 }
 
-extension ViewController {
-    private func showAlertWrongLogin(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message , preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            self.passwordTextField.text = ""
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-}
+//extension ViewController {
+//    private func showAlertWrongLogin(title: String, message: String) {
+//        let alertWrong = UIAlertController(title: title, message: message , preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+//            self.passwordTextField.text = ""
+//        }
+//        alertWrong.addAction(okAction)
+//        present(alertWrong, animated: true)
+//    }
+//}
