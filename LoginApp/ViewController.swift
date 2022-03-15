@@ -27,7 +27,9 @@ class ViewController: UIViewController {
         if loginTextField.text != "User" || passwordTextField.text != "Password" {
             showAlert(
                 title: "Invalid login or password",
-                message: "Please, enter correct login and password")
+                message: "Please, enter correct login and password",
+                textField: passwordTextField
+            )
             return
         } else {
             performSegue(withIdentifier: "segueForLogin", sender: nil)
@@ -43,9 +45,11 @@ class ViewController: UIViewController {
 
 // MARK: - Extension
 extension ViewController {
-    private func showAlert(title: String, message: String) {
+    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message , preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            textField?.text = ""
+        }
         alert.addAction(okAction)
         present(alert, animated: true)
     }
