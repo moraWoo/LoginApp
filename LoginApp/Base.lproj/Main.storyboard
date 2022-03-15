@@ -40,8 +40,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
-                                            <action selector="pressedLogin" destination="BYZ-38-t0r" eventType="touchUpInside" id="BKE-2v-DAM"/>
-                                            <segue destination="ryM-sM-ERX" kind="show" id="4fU-wQ-gYq"/>
+                                            <action selector="pressedLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bue-hF-60I"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" spacing="57" translatesAutoresizingMaskIntoConstraints="NO" id="jpX-PI-SGq">
@@ -84,6 +83,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="uX2-a7-qga" id="FkK-gU-RdD"/>
                         <outlet property="passwordTextField" destination="2nZ-7i-EDa" id="5yY-gg-nm3"/>
+                        <segue destination="ryM-sM-ERX" kind="show" identifier="segueForLogin" id="BqB-bD-RI9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,7 +93,7 @@
         <!--Login View Controller-->
         <scene sceneID="Vzf-On-uke">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ryM-sM-ERX" customClass="LoginViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="ryM-sM-ERX" customClass="LoginViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nda-iW-thl">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

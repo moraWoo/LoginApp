@@ -21,18 +21,20 @@ class ViewController: UIViewController {
         showAlert(title: "Oops!", message: "You User Name is User 😉")
     }
 
+
     @IBAction func pressedForgotPassword() {
         showAlert(title: "Oops!", message: "You password is Password 😉")
     }
     
-    @IBAction func pressedLogin() {
+    @IBAction func pressedLogin(_ sender: UIButton) {
         if loginTextField.text != "User" || passwordTextField.text != "Password" {
             showAlert(title: "Invalid login or password", message: "Please, enter correct login and password")
             return
+        } else {
+            performSegue(withIdentifier: "segueForLogin", sender: nil)
         }
     }
 
-    
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         loginTextField.text = ""
         passwordTextField.text = ""
