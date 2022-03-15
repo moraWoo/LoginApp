@@ -17,18 +17,17 @@ class ViewController: UIViewController {
         userNameForLabel.userNameLoginLabel = loginTextField.text
     }
 
-    @IBAction func pressedForgotUserName() {
-        showAlert(title: "Oops!", message: "You User Name is User 😉")
-    }
-
-
-    @IBAction func pressedForgotPassword() {
-        showAlert(title: "Oops!", message: "You password is Password 😉")
+    @IBAction func showAuthorizationData(_ sender: UIButton) {
+        sender.tag == 0
+            ? showAlert(title: "Oops!", message: "You User Name is User 😉")
+            : showAlert(title: "Oops!", message: "You password is Password 😉")
     }
     
     @IBAction func pressedLogin(_ sender: UIButton) {
         if loginTextField.text != "User" || passwordTextField.text != "Password" {
-            showAlert(title: "Invalid login or password", message: "Please, enter correct login and password")
+            showAlert(
+                title: "Invalid login or password",
+                message: "Please, enter correct login and password")
             return
         } else {
             performSegue(withIdentifier: "segueForLogin", sender: nil)
@@ -52,13 +51,4 @@ extension ViewController {
     }
 }
 
-//extension ViewController {
-//    private func showAlertWrongLogin(title: String, message: String) {
-//        let alertWrong = UIAlertController(title: title, message: message , preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
-//            self.passwordTextField.text = ""
-//        }
-//        alertWrong.addAction(okAction)
-//        present(alertWrong, animated: true)
-//    }
-//}
+
