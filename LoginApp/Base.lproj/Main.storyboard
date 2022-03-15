@@ -83,7 +83,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="uX2-a7-qga" id="FkK-gU-RdD"/>
                         <outlet property="passwordTextField" destination="2nZ-7i-EDa" id="5yY-gg-nm3"/>
-                        <segue destination="ryM-sM-ERX" kind="show" identifier="segueForLogin" id="BqB-bD-RI9"/>
+                        <segue destination="ryM-sM-ERX" kind="presentation" identifier="segueForLogin" modalPresentationStyle="fullScreen" id="BqB-bD-RI9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
