@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+   
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
@@ -16,12 +16,14 @@ class ViewController: UIViewController {
         guard let userNameForLabel = segue.destination as? LoginViewController else { return }
         userNameForLabel.userNameLoginLabel = loginTextField.text
     }
-
+    
     @IBAction func showAuthorizationData(_ sender: UIButton) {
         sender.tag == 0
             ? showAlert(title: "Oops!", message: "You User Name is User 😉")
             : showAlert(title: "Oops!", message: "You password is Password 😉")
     }
+    
+    
     
     @IBAction func pressedLogin(_ sender: UIButton) {
         if loginTextField.text != "User" || passwordTextField.text != "Password" {
