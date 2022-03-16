@@ -12,9 +12,12 @@ class ViewController: UIViewController {
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    private let user = "User"
+    private let password = "Password"
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let userNameForLabel = segue.destination as? LoginViewController else { return }
-        userNameForLabel.userNameLoginLabel = loginTextField.text
+        userNameForLabel.userNameLoginLabel = user
     }
     
     @IBAction func showAuthorizationData(_ sender: UIButton) {
@@ -23,19 +26,16 @@ class ViewController: UIViewController {
             : showAlert(title: "Oops!", message: "You password is Password 😉")
     }
     
-    
-    
-    @IBAction func pressedLogin(_ sender: UIButton) {
-        if loginTextField.text != "User" || passwordTextField.text != "Password" {
+    @IBAction func pressedLogin() {
+        guard loginTextField.text == user, passwordTextField.text == password else {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
                 textField: passwordTextField
             )
             return
-        } else {
-            performSegue(withIdentifier: "segueForLogin", sender: nil)
         }
+        performSegue(withIdentifier: "segueForLogin", sender: nil)
     }
 
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -61,5 +61,14 @@ extension ViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with:event)
         view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == loginTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            pressedLogin()
+        }
+        return true
     }
 }
